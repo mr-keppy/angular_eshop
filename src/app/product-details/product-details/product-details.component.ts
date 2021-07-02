@@ -22,7 +22,8 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(product => product.id === productIdFromRoute);
   }
 
-  addToCart(product: Product) {
+  addToCart(product: Product, quantity: string) {
+    product.quantity = Number(quantity);
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }

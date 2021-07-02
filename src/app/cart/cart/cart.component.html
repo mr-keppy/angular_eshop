@@ -7,37 +7,93 @@
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }} </span>
   <span>{{ item.price | currency }}</span>
+  <input
+    type="number"
+    id="quantity"
+    (click)="onQuantityChange(item, updatedQty.value)"
+    value="{{ item.quantity }}"
+    name="quantity"
+    min="1"
+    max="{{ item.stock }}"
+    #updatedQty
+  />
+  <button
+    type="button"
+    class="btn-close"
+    (click)="onClose(item)"
+    aria-label="Close"
+  ></button>
 </div>
-
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-
-  <div>
-    <label for="name">
-      Full Name
-    </label>
-    <input id="name" type="text" formControlName="name">
-  </div>
-
-  <div>
-    <label for="address1">
-      Address Line 1
-    </label>
-    <input id="address1" type="text" formControlName="address1">
-  </div>
-
-  <div>
-    <label for="address2">
-      Address Line 2
-    </label>
-    <input id="address2" type="text" formControlName="address2">
-  </div>
-  <div>
-    <label for="phone">
-      Phone
-    </label>
-    <input id="phone" type="text" formControlName="phone">
-  </div>
-
-  <button class="button" type="submit">Purchase</button>
-
-</form>
+<div class="alert">
+  <span>Total Amount: {{ total | currency }}</span>
+</div>
+<div class="container-fluid" style="width: 30%; margin-left: 0em;">
+  <form class="row lg-3" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+      <label for="name" class="form-label">Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email" />
+    </div>
+    <div class="col-md-6">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" />
+    </div>
+    <div class="col-12">
+      <label for="address1" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address1"
+        formControlName="address1"
+        placeholder="1234 Main St"
+      />
+    </div>
+    <div class="col-12">
+      <label for="address2" class="form-label">Address 2</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address2"
+        formControlName="address2"
+        placeholder="Apartment, studio, or floor"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="city" class="form-label">City</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="city"
+        id="city"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="state" class="form-label">State</label>
+      <select id="state" class="form-select" formControlName="state">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="zip" class="form-label">Zip</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="zip"
+        id="zip"
+      />
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 3%;">Check Out</button>
+    </div>
+  </form>
+</div>

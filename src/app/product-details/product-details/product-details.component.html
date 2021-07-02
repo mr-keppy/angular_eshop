@@ -8,6 +8,8 @@
         <div class="card-body">
           <h3 class="card-title">{{ product.name }}</h3>
           <p class="card-text">{{ product.description }}.</p>
+          <p><input class="form-control" type="number" id="quantity" value="1" name="quantity" min="1" max="{{product.stock}}" #quantity ></p>
+                
           <p>{{ product.price | currency }}</p>
           <p class="card-text"><small class="text-muted">Get it Saturday, 7AM-9PM. Pick a convenient slot at checkout</small></p>
           
@@ -22,8 +24,8 @@
                                     <li>Supports MagSafe accessories for easy attach and faster wireless charging</li>
                                         <li>iOS with redesigned widgets on the Home screen, all-new App Library, App Clips and more</li>
             </ul>
-            <button (click)="addToCart(product)">Buy</button>
-          <button (click)="addToCart(product)" class="btn btn-success" name="btnAddtoCart" style="margin-left:3%">Add to Cart</button>
+            <button (click)="addToCart(product, quantity.value)">Buy</button>
+          <button (click)="addToCart(product, quantity.value)" class="btn btn-success" name="btnAddtoCart" style="margin-left:3%">Add to Cart</button>
         </div>
       </div>
     </div>

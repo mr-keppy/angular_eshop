@@ -2,8 +2,12 @@
     <h1>E-Shoppe</h1>
   </a>
   
-  <a routerLink="/cart" class="button fancy-button">
+  <a routerLink="/cart" class="button fancy-button position-relative">
     <i class="material-icons">shopping_cart</i>Checkout
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      {{cartItemCount}}
+      <span class="visually-hidden">checkout items</span>
+    </span>
   </a>
   <!-- 
   Copyright Google LLC. All Rights Reserved.

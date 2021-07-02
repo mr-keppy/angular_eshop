@@ -5,6 +5,7 @@ export interface Product {
     description: string;
     image: string;
     stock: number;
+    quantity: number;
   }
   
   export const products = [
@@ -14,7 +15,8 @@ export interface Product {
       price: 399,
       description: 'A large phone with best screen',
       image: './assets/img/iphone11.png',
-      stock: 10
+      stock: 10,
+      quantity: 0,
     },
     {
       id: 2,
@@ -22,7 +24,8 @@ export interface Product {
       price: 699,
       description: 'A great phone with camera',
       image: './assets/img/iphone-12-mini.png',
-      stock: 8
+      stock: 8,
+      quantity: 0
     },
     {
       id: 3,
@@ -30,7 +33,8 @@ export interface Product {
       price: 799,
       description: 'New phone yet to release',
       image: './assets/img/iphone-12.jpg',
-      stock: 0
+      stock: 0,
+      quantity: 0
     },
     {
         id: 4,
@@ -38,7 +42,8 @@ export interface Product {
         price: 199,
         description: '',
         image: './assets/img/iphone-se.png',
-        stock: 1
+        stock: 1,
+        quantity: 0
       }
   ];
   
